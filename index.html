@@ -2,141 +2,117 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Something Special ❤️</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:radial-gradient(circle at center,#ff758c,#ff7eb3,#ff4d6d);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    color:white;
+    overflow:hidden;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff6a88, #ff99ac);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    color: white;
-    overflow: hidden;
+.container{
+    text-align:center;
+    backdrop-filter: blur(12px);
+    padding:40px 50px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.12);
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+    animation:fadeIn 2s ease;
+    max-width:600px;
+    width:90%;
 }
 
-.container {
-    text-align: center;
-    backdrop-filter: blur(10px);
-    padding: 30px 25px;
-    margin: 15px;
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 2s ease;
-    max-width: 90%;
-    width: 100%;
+h1{
+    font-size:38px;
+    margin-bottom:15px;
+    text-shadow:0 0 15px rgba(255,255,255,0.6);
 }
 
-h1 {
-    font-size: clamp(24px, 7vw, 38px);
-    margin: 0 0 15px 0;
-    line-height: 1.3;
+h2{
+    font-weight:300;
+    margin-bottom:20px;
+    font-size:22px;
 }
 
-h2 {
-    font-weight: 300;
-    font-size: clamp(16px, 4.5vw, 22px);
-    margin: 0 0 20px 0;
-    line-height: 1.4;
+.countdown{
+    font-size:30px;
+    font-weight:600;
+    letter-spacing:2px;
 }
 
-.countdown {
-    font-size: clamp(20px, 6vw, 28px);
-    font-weight: 600;
-    margin: 20px 0;
-    letter-spacing: 1px;
+.propose{
+    margin-top:20px;
+    font-size:18px;
+    opacity:0.9;
 }
 
-.propose {
-    margin-top: 20px;
-    font-size: clamp(14px, 4vw, 18px);
-    opacity: 0.9;
-    line-height: 1.6;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    } 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    } 
+@keyframes fadeIn{
+    from{opacity:0;transform:translateY(40px);} 
+    to{opacity:1;transform:translateY(0);} 
 }
 
 /* Floating hearts */
-.heart {
-    position: absolute;
-    color: #fff;
-    font-size: 20px;
-    animation: float 6s linear infinite;
-    pointer-events: none;
+.heart{
+    position:absolute;
+    color:#fff;
+    font-size:20px;
+    animation:float 6s linear infinite;
+    opacity:0.8;
 }
 
-@keyframes float {
-    from {
-        transform: translateY(100vh) scale(0.5);
-        opacity: 0.8;
-    } 
-    to {
-        transform: translateY(-10vh) scale(1.2);
-        opacity: 0;
-    } 
+@keyframes float{
+    from{transform:translateY(100vh) scale(0.5);} 
+    to{transform:translateY(-10vh) scale(1.2);} 
 }
 
-/* Mobile specific adjustments */
-@media (max-width: 480px) {
-    .container {
-        padding: 25px 20px;
-        border-radius: 15px;
-    }
-    
-    .countdown {
-        margin: 15px 0;
-    }
-    
-    .propose {
-        margin-top: 15px;
-    }
+/* ===== MOBILE FRIENDLY ===== */
+@media (max-width:768px){
+
+body{
+    padding:15px;
+    align-items:flex-start;
 }
 
-/* Very small screens */
-@media (max-width: 320px) {
-    .container {
-        padding: 20px 15px;
-    }
+.container{
+    padding:30px 20px;
+    border-radius:20px;
 }
 
-/* Landscape mode for mobile */
-@media (max-height: 500px) and (orientation: landscape) {
-    body {
-        align-items: flex-start;
-        padding-top: 20px;
-    }
-    
-    .container {
-        margin: 10px;
-        padding: 15px 20px;
-    }
-    
-    h1, h2, .countdown, .propose {
-        margin-top: 8px;
-        margin-bottom: 8px;
-    }
+h1{
+    font-size:26px;
+}
+
+h2{
+    font-size:18px;
+}
+
+.countdown{
+    font-size:22px;
+}
+
+.propose{
+    font-size:16px;
+}
+
+}
+
+@media (max-width:420px){
+
+h1{font-size:22px;}
+h2{font-size:16px;}
+.countdown{font-size:18px;}
+.propose{font-size:14px;}
+
 }
 </style>
 </head>
@@ -148,60 +124,47 @@ h2 {
 
     <div class="countdown" id="countdown"></div>
 
-    <div class="propose">By the way... Happy Propose Day 💖<br>Itni jaldi nahi bataunga 🤭</div>
+    <div class="propose">
+        By the way... Happy Propose Day 💖<br>
+        Itni jaldi nahi bataunga 🤭
+    </div>
 </div>
 
 <script>
 // Countdown to Feb 14
-const target = new Date(new Date().getFullYear(), 1, 14);
+const target = new Date(new Date().getFullYear(),1,14);
 
-function updateCountdown() {
+function updateCountdown(){
     const now = new Date();
     const diff = target - now;
 
-    if (diff <= 0) {
-        document.getElementById('countdown').innerHTML = 'It\'s Valentine\'s Day ❤️';
+    if(diff<=0){
+        document.getElementById('countdown').innerHTML = "It's Valentine's Day ❤️";
         return;
     }
 
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff % 86400000 / 3600000);
-    const m = Math.floor(diff % 3600000 / 60000);
-    const s = Math.floor(diff % 60000 / 1000);
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor(diff%86400000/3600000);
+    const m=Math.floor(diff%3600000/60000);
+    const s=Math.floor(diff%60000/1000);
 
-    document.getElementById('countdown').innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    document.getElementById('countdown').innerHTML=
+        `${d}d ${h}h ${m}m ${s}s`;
 }
-setInterval(updateCountdown, 1000);
+setInterval(updateCountdown,1000);
 updateCountdown();
 
-// Floating hearts - optimized for mobile
-let heartInterval = setInterval(() => {
-    const heart = document.createElement('div');
-    heart.className = 'heart';
-    heart.innerHTML = '❤️';
-    heart.style.left = Math.random() * 100 + 'vw';
-    heart.style.fontSize = (10 + Math.random() * 25) + 'px';
+// Floating hearts animation
+setInterval(()=>{
+    const heart=document.createElement('div');
+    heart.className='heart';
+    heart.innerHTML='❤️';
+    heart.style.left=Math.random()*100+'vw';
+    heart.style.fontSize=(12+Math.random()*30)+'px';
     document.body.appendChild(heart);
 
-    setTimeout(() => heart.remove(), 6000);
-}, 800); // Slightly slower for better mobile performance
-
-// Pause animations when page is hidden (battery saving)
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-        clearInterval(heartInterval);
-    } else {
-        heartInterval = setInterval(() => {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (10 + Math.random() * 25) + 'px';
-            document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 6000);
-        }, 800);
-    }
-});
+    setTimeout(()=>heart.remove(),7000);
+},400);
 </script>
 
 </body>
